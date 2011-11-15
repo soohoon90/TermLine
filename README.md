@@ -14,3 +14,9 @@ The JSON is a list of events. An `event` is represented with a dot in the timeli
 The format of the date is YYYY-MM-DD. If this is not formatted properlly bad things will happen.
 
 Both `event` and `period` will have to have a title. Title is what shows beside the dot for `event` and on the line for `period`.
+
+## Structure
+Term Line App
+	User (Lines)
+		Line (Events)
+			Event (title, date, [enddate], [desc], [link])
