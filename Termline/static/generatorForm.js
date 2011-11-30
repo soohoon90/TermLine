@@ -50,6 +50,13 @@ $(document).ready(function() {
         console.log(timeline);
         $("#notDone").show();
         addNewYear(timeline.startYear);
+        timeline.currentYear += 1;
+        addNewYear(timeline.currentYear);
+        timeline.currentYear += 1;
+        addNewYear(timeline.currentYear);
+        timeline.currentYear += 1;
+        addNewYear(timeline.currentYear);
+        $("#timelineform input:first").focus();        
         $("#submitButton").removeClass("danger").val("Submit!").addClass("primary").attr('disabled', false);
         return false;
     });

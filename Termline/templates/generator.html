@@ -8,20 +8,20 @@
     <p style="text-align: center; margin-bottom: 2em">Make your own personal Timeline by filling out a simple form!</p>
     <form action="{{ url_for('generate') }}" method="post">
         
-        <h2>How you introduce yourself:</h2>
+        <h2 style="margin-top: 1.5em;">How would you introduce yourself:</h2>
         
-        <p>Hello. My name is <input type="text" size="50" name="name" placeholder="Your Name"><br />
-        I study <input type="text" size="50" name="study" placeholder="Your Faculty">
-        @ <input type="text" size="50" name="school" placeholder="University of Waterloo"></p>
+        <p>My name is <input type="text" size="50" name="name" placeholder="Your Name (eg. John Doe)" class="span3"> and 
+        I study <input type="text" size="50" name="study" placeholder="Your Program (eg. Engineering)" class="span3" >
+        @ <input type="text" size="50" name="school" placeholder="Your School (eg. uWaterloo)" class="span4"></p>
         
-        <h2>Fill out your timeline: </h2>
+        <h2 style="margin-top: 1.5em;">Fill out your timeline: </h2>
 
         <p>When did you start going to school? 
             <!-- <select class="large" name="startyear" id="startyear">
                 <option>Something went wrong :(</option>
             </select> -->
         </p>
-        <div id="yearButtons" class="well"></div>
+        <div id="yearButtons" class="well" style="text-align: center"></div>
         
         <div id="timelineform">
             If you see this shit went wrong :(
@@ -32,8 +32,8 @@
                 Fall <input type="text" size="20" name="2008-3">
             </p> -->
         </div>
-        <div id="notDone">
-            <p>Not done yet? <a href="#addNewYear" name="addNewYear" id="addNewYear" class="btn medium success">Add another year</a> Made a mistake? <a href="#deleteLastYear" name="deleteLastYear" id="deleteLastYear" class="btn medium danger">Delete Lastly added Year</a></p>
+        <div id="notDone" class="well" style="text-align: center">
+            <p>Not done yet? <a href="#addNewYear" name="addNewYear" id="addNewYear" class="btn medium success">Add another year</a> Made a mistake? <a href="#deleteLastYear" name="deleteLastYear" id="deleteLastYear" class="btn medium danger">Delete most recent year</a></p>
         </div>
         <div class="actions">
             <input type="submit" id="submitButton" class="btn danger xxlarge large " value="Please fill out the form to Generate your Timeline" disabled>
