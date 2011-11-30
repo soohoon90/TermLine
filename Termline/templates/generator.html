@@ -1,8 +1,11 @@
 {% extends "layout.html" %}
 {% block body %}
 <div id="generatorForm" class="hero-unit">
-    <h1>Generate Your own Timeline!</h1>
-    <p style="text-align: center; margin-bottom: 2em">Just one small form to fill out :)</p>
+    <div id="logo" style="text-align: center">
+        <img src="{{ url_for('static', filename='logo.png')}}" width="400" />
+    </div>
+    <!-- <h1>Generate Your own Timeline!</h1> -->
+    <p style="text-align: center; margin-bottom: 2em">Make your own personal Timeline by filling out a simple form!</p>
     <form action="{{ url_for('generate') }}" method="post">
         
         <h2>How you introduce yourself:</h2>
@@ -21,6 +24,7 @@
         <div id="yearButtons" class="well"></div>
         
         <div id="timelineform">
+            If you see this shit went wrong :(
             <!-- <h3>2008</h3>
             <p>
                 Winter <input type="text" size="20" name="2008-1">
@@ -28,8 +32,8 @@
                 Fall <input type="text" size="20" name="2008-3">
             </p> -->
         </div>
-        <div id="notDone" style="display:none">
-            <p>Not done yet? <a href="#" id="addNewYear" class="btn medium">Add another year</a></p>
+        <div id="notDone">
+            <p>Not done yet? <a href="#addNewYear" name="addNewYear" id="addNewYear" class="btn medium success">Add another year</a> Made a mistake? <a href="#deleteLastYear" name="deleteLastYear" id="deleteLastYear" class="btn medium danger">Delete Lastly added Year</a></p>
         </div>
         <div class="actions">
             <input type="submit" id="submitButton" class="btn danger xxlarge large " value="Please fill out the form to Generate your Timeline" disabled>

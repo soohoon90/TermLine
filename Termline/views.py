@@ -3,8 +3,6 @@ from flask import Flask, request, session, g, redirect, \
                 make_response
 
 from Termline import app
-from Termline.database import db_session
-from Termline.models import User
 from PIL import Image, ImageDraw, ImageFont
 import tempfile, random, StringIO, string, pprint
 
