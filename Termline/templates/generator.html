@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body %}
+<div id="generatorForm" class="hero-unit">
+    <h1>Generate Your own Timeline!</h1>
+    <p style="text-align: center; margin-bottom: 2em">Just one small form to fill out :)</p>
+    <form action="{{ url_for('generate') }}" method="post">
+        
+        <h2>How you introduce yourself:</h2>
+        
+        <p>Hello. My name is <input type="text" size="50" name="name" placeholder="Your Name"><br />
+        I study <input type="text" size="50" name="study" placeholder="Your Faculty">
+        @ <input type="text" size="50" name="school" placeholder="University of Waterloo"></p>
+        
+        <h2>Fill out your timeline: </h2>
+
+        <p>When did you start going to school? 
+            <!-- <select class="large" name="startyear" id="startyear">
+                <option>Something went wrong :(</option>
+            </select> -->
+        </p>
+        <div id="yearButtons" class="well"></div>
+        
+        <div id="timelineform">
+            <!-- <h3>2008</h3>
+            <p>
+                Winter <input type="text" size="20" name="2008-1">
+                Spring <input type="text" size="20" name="2008-2"> 
+                Fall <input type="text" size="20" name="2008-3">
+            </p> -->
+        </div>
+        <div id="notDone" style="display:none">
+            <p>Not done yet? <a href="#" id="addNewYear" class="btn medium">Add another year</a></p>
+        </div>
+        <div class="actions">
+            <input type="submit" id="submitButton" class="btn danger xxlarge large " value="Please fill out the form to Generate your Timeline" disabled>
+            <!-- <button type="reset" class="btn">Cancel</button> -->
+        </div>
+    </form>
+</div>
+{% endblock %}
