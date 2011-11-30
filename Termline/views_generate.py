@@ -20,7 +20,7 @@ def linify (str, w, f, s):
             lines.append(words[i])
     return lines
 
-def textbox (draw, str, x, y, w, h, bg, fg, font="League Gothic.otf", size=50, box=True, shadow=False, shadowDepth = 2):
+def textbox (draw, str, x, y, w, h, bg, fg, font="fonts/League Gothic.otf", size=50, box=True, shadow=False, shadowDepth = 2):
     """
         Creates a text centered within the given dimentions of area
         if str is long or height is too small for font,
@@ -95,12 +95,12 @@ def generate():
     
     pprint.pprint(c)
 
-    c['font'] = "League Gothic.otf"
-    c['m100'] = "Museo_Slab_100.otf"
-    c['m300'] = "Museo_Slab_300.otf"
-    c['m500'] = "Museo_Slab_500.otf"
-    c['m700'] = "Museo_Slab_700.otf"
-    c['m900'] = "Museo_Slab_900.otf"
+    c['font'] = "fonts/League Gothic.otf"
+    c['m100'] = "fonts/Museo_Slab_100.otf"
+    c['m300'] = "fonts/Museo_Slab_300.otf"
+    c['m500'] = "fonts/Museo_Slab_500.otf"
+    c['m700'] = "fonts/Museo_Slab_700.otf"
+    c['m900'] = "fonts/Museo_Slab_900.otf"
     c['size'] = 48
     
     c['width'] = 960
