@@ -6,6 +6,7 @@ var timeline = {
 
 function clearYear(){
     $("#timelineform").html("");
+    $("#submitButton").val("Please fill out the form to Generate your Timeline").addClass("danger xxlarge large").attr('disabled', true);
     $("#notDone").hide();
     timeline.terms = {}
 }
@@ -49,6 +50,8 @@ $(document).ready(function() {
         console.log(timeline);
         $("#notDone").show();
         addNewYear(timeline.startYear);
+        $("#submitButton").removeClass("danger").val("Submit!").addClass("primary").attr('disabled', false);
+        return false;
     });
     
     // add New Year

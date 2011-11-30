@@ -1,22 +1,6 @@
+# TermLine.me
+this hack is for the Velocity Fall 2011 Demo day and will take user input and generate a image.
 
-# TermLine
-TermLine is a little tool to generate a personal timeline to outline projects, work, and life events that might be of interest to a potential employer or client. 
+## User Input
+User will input name, study, school, and up to 6 years of 3 terms of Winter, Spring and Fall term information. The input will be used as a cell title for the visualization.
 
-## How to use
-Fork the project and edit the JSON input file it should be fairly obvious! Client side rendering will read the json file and construct the timeline on the fly!
-
-## IT IS NOT OBVIOUS!!
-... Fine. Read on for more details
-
-## How to use (detailed)
-The JSON is a list of events. An `event` is represented with a dot in the timeline where `period` is represented as a line. Pretty simple. If you want an event to be represented as a line, add a end-date field OR a period field.
-
-The format of the date is YYYY-MM-DD. If this is not formatted properlly bad things will happen.
-
-Both `event` and `period` will have to have a title. Title is what shows beside the dot for `event` and on the line for `period`.
-
-## Structure
-Term Line App
-	User (Lines)
-		Line (Events)
-			Event (title, date, [enddate], [desc], [link])

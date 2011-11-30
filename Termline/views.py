@@ -99,7 +99,7 @@ def generate():
     study = request.values.get('study', 'Engineering')
     school = request.values.get('school', 'University of Waterloo')
     
-    pprint.pprint(request.values)
+    # pprint.pprint(request.values)
     
     textIntro = "Hello. My name is %s. I study %s @ %s. Here is my timeline." % (name, study, school)
     
@@ -111,18 +111,24 @@ def generate():
     terms.append({ 'type':"title", 'title': "Winter", "year": " ", "term": "1" })
     terms.append({ 'type':"title", 'title': "Spring", "year": " ", "term": "2" })
     terms.append({ 'type':"title", 'title': "Fall", "year": " ", "term": "3" })
-    terms.append({ 'type':"school", 'title': "1A", "year": "2008", "term": "3" })
-    terms.append({ 'type':"school", 'title': "1B", "year": "2009", "term": "1" })
-    terms.append({ 'type':"work", 'title': "Indigo", "year": "2009", "term": "2" })
-    terms.append({ 'type':"school", 'title': "2A", "year": "2009", "term": "3" })
-    terms.append({ 'type':"work", 'title': "Shoppers", "year": "2010", "term": "1" })
-    terms.append({ 'type':"school", 'title': "2B", "year": "2010", "term": "2" })
-    terms.append({ 'type':"work", 'title': "Telus", "year": "2010", "term": "3" })
-    terms.append({ 'type':"school", 'title': "3A", "year": "2011", "term": "1" })
-    terms.append({ 'type':"work", 'title': "Facebook", "year": "2011", "term": "2" })
-    terms.append({ 'type':"school", 'title': "3B", "year": "2011", "term": "3" })
-    terms.append({ 'type':"work", 'title': "Microsoft is gonna be awesome", "year": "2012", "term": "1" })
-    terms.append({ 'type':"school", 'title': "4A", "year": "2012", "term": "2" })
+    for key in sorted(request.values.iterkeys()):
+        keysplit = string.split(key,'-')
+        if (len(keysplit) is 2 and len(request.values.get(key)) is not 0):
+            print request.values.get(key)
+            terms.append({'title': request.values.get(key), "year": keysplit[0], "term": keysplit[1] })
+    
+    # terms.append({ 'type':"school", 'title': "1A", "year": "2008", "term": "3" })
+    # terms.append({ 'type':"school", 'title': "1B", "year": "2009", "term": "1" })
+    # terms.append({ 'type':"work", 'title': "Indigo", "year": "2009", "term": "2" })
+    # terms.append({ 'type':"school", 'title': "2A", "year": "2009", "term": "3" })
+    # terms.append({ 'type':"work", 'title': "Shoppers", "year": "2010", "term": "1" })
+    # terms.append({ 'type':"school", 'title': "2B", "year": "2010", "term": "2" })
+    # terms.append({ 'type':"work", 'title': "Telus", "year": "2010", "term": "3" })
+    # terms.append({ 'type':"school", 'title': "3A", "year": "2011", "term": "1" })
+    # terms.append({ 'type':"work", 'title': "Facebook", "year": "2011", "term": "2" })
+    # terms.append({ 'type':"school", 'title': "3B", "year": "2011", "term": "3" })
+    # terms.append({ 'type':"work", 'title': "Microsoft is gonna be awesome", "year": "2012", "term": "1" })
+    # terms.append({ 'type':"school", 'title': "4A", "year": "2012", "term": "2" })
     # terms.append({ 'type':"work", 'title': "Hire ME", "year": "2012", "term": "3" })
 
     t = {}
