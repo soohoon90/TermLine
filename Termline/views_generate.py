@@ -51,11 +51,6 @@ def textbox (draw, str, x, y, w, h, bg, fg, font="League Gothic.otf", size=50, b
         draw.text( ( x+ w/2 - xx/2 , y + h/2 - yy/2 ), str, font=font, fill="white")
     else:
         draw.text( ( x+ w/2 - xx/2 , y + h/2 - yy/2 ), str, font=font, fill=fg)
-    
-
-@app.route('/')
-def index():
-    return render_template('generator.html')
 
 @app.route('/generate', methods=['POST', 'GET']) 
 def generate():
@@ -115,7 +110,7 @@ def generate():
     img = Image.new('RGBA', (c['width'], c['height']), c['bg'])
     draw = ImageDraw.Draw(img)
 
-    name = request.values.get('name', 'Hoon')
+    name = request.values.get('name')
     study = request.values.get('study', 'Engineering')
     school = request.values.get('school', 'University of Waterloo')
     

@@ -9,4 +9,5 @@ PASSWORD = 'default'
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-import Termline.views
+import Termline.views_generate
+import Termline.views_simple
