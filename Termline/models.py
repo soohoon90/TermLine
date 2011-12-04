@@ -1,15 +1,12 @@
-from sqlalchemy import Table, Column, Integer, String, Text, \
-                        DateTime, ForeignKey
-from sqlalchemy.orm import relationship, backref
-from Termline.database import Base
+from Termline import db
 
-class User(Base):
+class User(db.Model):
     __tablename__ = 'user'
-    id = Column(Integer, primary_key=True)
-    username = Column(String(50), unique=True)
-    password = Column(String(50))
+    uid = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.Text, unique=True)
+    password = db.Column(db.Text)
     
-    entries = relationship("Entry", backref='user')    
+    entries = db.relationship("Image", backref='user')    
 
     def __init__(self, un=None, pw=None):
         self.username = un
@@ -18,18 +15,16 @@ class User(Base):
     def __repr__(self):
         return '<User %r>' % (self.username)
         
-class Entry(Base):
-    __tablename__ = 'entry'
-    id = Column(Integer, primary_key=True)
-    data = Column(Text)
-    title = Column(Text)
-    date = Column(DateTime)
-    date2 = Column(DateTime)
-    uid = Column(Integer, ForeignKey('user.id'))
+class Image(db.Model):
+    __tablename__ = 'image'
+    iid = db.Column(db.Integer, primary_key=True)
+    key = db.Column(db.Text)
+    data = db.Column(db.Text)
+    uid = db.Column(db.Integer, db.ForeignKey('user.uid'))
     
     def __init__(self, data=None, uid=None):
         self.data = data
         self.uid = uid
     
     def __repr__(self):
-        return '<Entry %r>' % (self.id)
+        return '<Image %r>' % (self.iid)

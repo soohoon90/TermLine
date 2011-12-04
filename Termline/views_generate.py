@@ -1,12 +1,16 @@
 from flask import Flask, request, session, g, redirect, \
                 url_for, abort, render_template, flash, \
-                make_response
+                make_response, session
 
 from Termline import app
 from PIL import Image, ImageDraw, ImageFont
 import tempfile, random, StringIO, string, pprint
 
 def linify (str, w, f, s):
+    """
+        breaks the given str to fit given width given font and font size
+        returns an array of linified string
+    """
     words = string.split(str, ' ')
     lines = [words[0]]
     curLine = 0
@@ -52,8 +56,13 @@ def textbox (draw, str, x, y, w, h, bg, fg, font="fonts/League Gothic.otf", size
     else:
         draw.text( ( x+ w/2 - xx/2 , y + h/2 - yy/2 ), str, font=font, fill=fg)
 
-@app.route('/generate', methods=['POST', 'GET']) 
+def generate( size, theme, value,  ):
+
+@app.route('/generate', methods=['POST']) 
 def generate():
+    
+    # memoization
+    
 
     theme1 = ['#1B1B2C','#21214C','#3635A8','#7B7BD1','#B6B5D1']
     theme2 = ['#0E3D59','#88A61B','#F29F05','#F25C05','#F25C05']
@@ -113,6 +122,9 @@ def generate():
     name = request.values.get('name')
     study = request.values.get('study', 'Engineering')
     school = request.values.get('school', 'University of Waterloo')
+    
+    session['study'] = study
+    session['school'] = school
     
     textIntro = "Hello. My name is %s. I study %s @ %s. Here is my timeline." % (name, study, school)
     

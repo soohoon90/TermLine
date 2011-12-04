@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block body %}
+<div id="configForm" class="hero-unit">
+    <div id="logo" style="text-align: center">
+        <img src="{{ url_for('static', filename='logo.png')}}" width="400" />
+    </div>
+    <!-- <h1>Generate Your own Timeline!</h1> -->
+    <p style="text-align: center; margin-bottom: 2em">Customize output to tailor your need!</p>
+    
+    <form action="{{ url_for('generate') }}" method="post">
+        
+        <h2 style="margin-top: 1.5em;">Colors</h2>
+        
+        <p>
+            Background Color
+            <input type="text" size="50" name="name" placeholder="Your Name (eg. John Doe)" class="span3">
+        </p>
+        <p>
+            Text Color
+            <input type="text" size="50" name="study" placeholder="Your Program (eg. Engineering)" class="span3" >
+        </p>    
+        
+        <h2 style="margin-top: 1.5em;">Generate Mode</h2>
+        <div class="clearfix">
+            <label id="optionsRadio">List of options</label>
+            <div class="input">
+              <ul class="inputs-list">
+                <li>
+                  <label>
+                    <input type="radio" checked name="optionsRadios" value="fixed">
+                    <span>Fixed Size [960x720; Optimized for Facebook] (4:3); the timeline will be fixed in size</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="optionsRadios" value="vertical">
+                    <span>Vertical Grow; the timeline will be laid out vertically by year and grow vertically</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="optionsRadios" value="horizontal">
+                    <span>Horizontal Grow: the timeline will be laid out and grow horizontally</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </form>
+    
+    
+</div>
+{% endblock %}

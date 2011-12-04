@@ -26,10 +26,20 @@
       <div class="fill">
         <div class="container">
           <a class="brand" href="{{ url_for('index') }}">TermLine.me</a>
+          
           <ul class="nav">
             <li><a href="{{ url_for('about') }}">About</a></li>
             <li><a href="{{ url_for('recent') }}">Recent</a></li>
           </ul>
+          {% if not session.username %}
+            <form action="{{ url_for('login') }}" class="pull-right" method="POST">
+              <input class="input-small" type="text" name="username" placeholder="Username">
+              <!-- <input class="input-small" type="password" placeholder="Password"> -->
+              <button class="btn" type="submit">Sign in</button>
+            </form>
+           {% else %}
+             <p class="pull-right">Logged in as {{ session.username }}. <a href="{{ url_for('logout') }}">Logout</a></p>
+           {% endif %}
         </div>
       </div>
     </div>

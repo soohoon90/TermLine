@@ -10,9 +10,27 @@
         
         <h2 style="margin-top: 1.5em;">How would you introduce yourself:</h2>
         
-        <p>My name is <input type="text" size="50" name="name" placeholder="Your Name (eg. John Doe)" class="span3"> and 
-        I study <input type="text" size="50" name="study" placeholder="Your Program (eg. Engineering)" class="span3" >
-        @ <input type="text" size="50" name="school" placeholder="Your School (eg. uWaterloo)" class="span4"></p>
+        
+        
+        <p>My name is 
+            {% if not session.username %}
+            <input type="text" size="50" name="name" placeholder="Your Name (eg. John Doe)" class="span3">
+            {% else %}
+            <input type="text" size="50" name="name" class="span3" value={{session.username}}>
+            {% endif %}
+            and I study 
+            {% if not session.study %}
+            <input type="text" size="50" name="study" placeholder="Your Program (eg. Engineering)" class="span3" >
+            {% else %}
+            <input type="text" size="50" name="name" class="span3" value={{session.study}}>
+            {% endif %}
+            @ 
+            {% if not session.school %}
+            <input type="text" size="50" name="school" placeholder="Your School (eg. uWaterloo)" class="span4">
+            {% else %}
+            <input type="text" size="50" name="name" class="span4" value={{session.school}}>
+            {% endif %}
+            </p>
         
         <h2 style="margin-top: 1.5em;">Fill out your timeline: </h2>
 

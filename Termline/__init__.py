@@ -1,13 +1,11 @@
 from flask import Flask
-
-DATABASE = 'flaskr.db'
-DEBUG = True
-SECRET_KEY = 'development key'
-USERNAME = 'admin'
-PASSWORD = 'default'
+from flaskext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config.from_object(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///termline.db'
+db = SQLAlchemy(app)
 
+import Termline.models
 import Termline.views_generate
 import Termline.views_simple
