@@ -2,7 +2,6 @@ bin
 build
 include
 lib
+fonts
 .Python
 *.pyc
-*.ttf
-*.otf
