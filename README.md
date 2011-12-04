@@ -1,5 +1,7 @@
 # TermLine.me
-this hack is for the Velocity Fall 2011 Demo day and will take user input and generate a image.
+
+This hack is for the Velocity Fall 2011 Demo day and will take user input and generate a image.
+This is currently hosted at http://termline.herokuapp.com
 
 ## Usage
 
