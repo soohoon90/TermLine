@@ -10,6 +10,7 @@ User will input name, study, school, and up to 6 years of 3 terms of Winter, Spr
 
 ### Features in Development
 
+- Arbitary events with arbitary length support
 - Configuration page for customizaing color scheme, font, image size
 - Persisting session to keep input values 
 - User accounts for further persistance
